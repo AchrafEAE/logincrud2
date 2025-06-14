@@ -22,6 +22,7 @@ COPY . /var/www/html
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Install PHP dependencies
+RUN composer require fakerphp/faker
 RUN composer install --no-dev --optimize-autoloader
 
 # Copy env and generate app key
